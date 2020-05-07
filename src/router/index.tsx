@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 
-const Home = lazy(() => import("containers/Home"));
+const CreditCardContainer = lazy(() =>
+  import("containers/CreditCardContainer")
+);
 
 const Router = () => {
   return (
@@ -9,7 +11,7 @@ const Router = () => {
       <div style={{ height: "100vh" }}>
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route path="/" component={Home} exact />
+            <Route path="/" component={CreditCardContainer} exact />
           </Switch>
         </Suspense>
       </div>

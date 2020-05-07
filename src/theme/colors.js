@@ -19,7 +19,7 @@ export const mainGray = "#6D6D6D";
 export const mediumGray = "#515350";
 export const darkGray = "#666666";
 
-export const darkRed = "#D42E28";
+export const darkRed = "#DE4B4B";
 export const lightRed = "#e40021";
 
 export const darkYellow = "#84671b";

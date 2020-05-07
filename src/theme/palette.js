@@ -30,6 +30,7 @@ import {
   deleting,
   finished,
   charging,
+  darkRed,
 } from "./colors";
 
 const black = "#000000";
@@ -55,11 +56,12 @@ export default {
   patternBlue,
   patternGreen,
   patternGray,
+  darkRed,
   primary: {
     contrastText: white,
-    dark: patternBlue,
-    main: patternBlue,
-    light: patternBlue,
+    dark: darkRed,
+    main: darkRed,
+    light: darkRed,
   },
   secondary: {
     contrastText: white,
