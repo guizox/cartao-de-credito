@@ -17,6 +17,7 @@ const MaskedInput: React.FC<IMaskedInput> = ({
   onBlur,
   InputProps,
   onEnter,
+  id,
 }) => (
   <InputMask
     mask={mask}
@@ -25,6 +26,7 @@ const MaskedInput: React.FC<IMaskedInput> = ({
     onChange={onChange}
     onBlur={onBlur}
     disabled={disabled}
+    id={id}
     onFocus={onEnter}
   >
     {(inputProps, onEnter) => (

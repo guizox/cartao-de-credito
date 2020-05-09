@@ -26,10 +26,12 @@ const CreditCard: React.FC<Props> = ({ state }) => {
         className={classes.image}
       />
       {state.editingCvv ? (
-        <p className={classes.cvv}>{state.creditCard.cvv || "***"}</p>
+        <p id="creditCardCvv" className={classes.cvv}>
+          {state.creditCard.cvv || "***"}
+        </p>
       ) : (
         <React.Fragment>
-          <p className={classes.creditCardNumber}>
+          <p id="creditCardNumber" className={classes.creditCardNumber}>
             {state.creditCard.number || "**** **** **** ****"}
           </p>
           <Grid
@@ -37,16 +39,17 @@ const CreditCard: React.FC<Props> = ({ state }) => {
             justify="space-around"
             className={classes.textContainer}
           >
-            <Grid item xs={9} className={classes.cardText}>
-              {state.creditCard.name || "NOME DO TITULAR"}
+            <Grid item xs={9} className={classes.cardText} id="creditCardName">
+              <span>{state.creditCard.name || "NOME DO TITULAR"}</span>
             </Grid>
             <Grid
               item
               xs={3}
               className={classes.cardText}
               style={{ textAlign: "right" }}
+              id="creditCardDate"
             >
-              {state.creditCard.date || "00/00"}
+              <span>{state.creditCard.date || "00/00"}</span>
             </Grid>
           </Grid>
         </React.Fragment>

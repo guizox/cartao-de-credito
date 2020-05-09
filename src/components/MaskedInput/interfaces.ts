@@ -12,4 +12,5 @@ export class IMaskedInput {
   variant?: "standard" | "outlined" | "filled" = "outlined";
   required?: boolean = true;
   InputProps?: any;
+  id?: string;
 }

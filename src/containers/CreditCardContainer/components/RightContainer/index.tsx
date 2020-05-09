@@ -47,6 +47,7 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
           <MaskedInput
             mask="9999 9999 9999 9999"
             value={state.creditCard.number}
+            id="creditCard"
             maskChar="*"
             onChange={(e) =>
               setState({
@@ -71,6 +72,7 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
           <TextField
             label="Nome"
             placeholder="Nome(Igual ao do cartão)"
+            id="name"
             helperText={
               state.creditCard.name.length === 0
                 ? "Insira seu nome completo"
@@ -95,6 +97,7 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
             mask="99/99"
             value={state.creditCard.date}
             maskChar="0"
+            id="date"
             helperText={
               state.creditCard.date.length === 0 ? "Data inválida" : ""
             }
@@ -117,6 +120,7 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
             mask="999"
             value={state.creditCard.cvv.length > 0 ? state.creditCard.cvv : ""}
             maskChar="*"
+            id="cvv"
             error={state.creditCard.cvv.length === 0}
             onChange={(e) =>
               setState({
@@ -143,8 +147,11 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
           <FormControl
             error={state.creditCard.installments.length === 0}
             style={{ width: "100%" }}
+            id="installments"
           >
-            <InputLabel id="demo-simple-select-error-label">Name</InputLabel>
+            <InputLabel id="demo-simple-select-error-label">
+              Parcelas
+            </InputLabel>
             <Select
               value={state.creditCard.installments}
               onChange={(e) =>

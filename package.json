@@ -16,6 +16,7 @@
     "axios": "^0.18.1",
     "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
+    "cypress": "^4.5.0",
     "date-fns": "^2.9.0",
     "formik": "^2.1.2",
     "history": "^4.10.1",
