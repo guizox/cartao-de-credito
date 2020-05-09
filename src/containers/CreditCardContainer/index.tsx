@@ -18,6 +18,8 @@ const initialState: State = {
     cvv: "",
     installments: "",
   },
+  editingCvv: false,
+  step: 2,
 };
 
 const CreditCardContainer = () => {

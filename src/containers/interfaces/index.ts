@@ -1,5 +1,7 @@
 export interface State {
   creditCard: CreditCard;
+  editingCvv: false;
+  step: number;
 }
 
 export interface CreditCard {

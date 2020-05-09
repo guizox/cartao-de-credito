@@ -4,6 +4,7 @@ export class IMaskedInput {
   value: string | number = "";
   onChange: (e: any) => void = () => {};
   onBlur?: (e: any) => void = () => {};
+  onEnter?: (e: any) => void;
   disabled?: boolean = false;
   label: string = "";
   helperText: string = "";

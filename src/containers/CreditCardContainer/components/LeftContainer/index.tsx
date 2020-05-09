@@ -6,6 +6,7 @@ import styles from "./styles";
 import CreditCard from "components/CreditCard";
 import Hidden from "@material-ui/core/Hidden";
 import { State } from "containers/interfaces";
+import Stepper from "components/Stepper";
 
 interface Props {
   state: State;
@@ -33,9 +34,10 @@ const LeftContainer: React.FC<Props> = ({ state, setState }) => {
             <Typography variant="body1">{"<"}</Typography>
           </Grid>
 
-          <Grid item xs={11}>
-            <Typography variant="body1">{"Etapa 1 de 2"}</Typography>
-          </Grid>
+          <Stepper
+            state={state}
+            steps={["Carrinho", "Pagamento", "Confirmação"]}
+          />
         </Grid>
       </Hidden>
 

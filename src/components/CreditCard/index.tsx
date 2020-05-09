@@ -16,29 +16,41 @@ const CreditCard: React.FC<Props> = ({ state }) => {
     <Grid item className={classes.creditCardContainer}>
       <img
         src={
-          state.creditCard.number.split("*").join("").length > 8
+          state.editingCvv
+            ? "/images/cvv.svg"
+            : state.creditCard.number.split("*").join("").length > 8
             ? "/images/filledCreditCard.svg"
             : "/images/emptyCreditCard.svg"
         }
         alt="emptyCreditCard"
         className={classes.image}
       />
-      <p className={classes.creditCardNumber}>
-        {state.creditCard.number || "**** **** **** ****"}
-      </p>
-      <Grid container justify="space-around" className={classes.textContainer}>
-        <Grid item xs={9} className={classes.cardText}>
-          {state.creditCard.name || "NOME DO TITULAR"}
-        </Grid>
-        <Grid
-          item
-          xs={3}
-          className={classes.cardText}
-          style={{ textAlign: "right" }}
-        >
-          {state.creditCard.date || "00/00"}
-        </Grid>
-      </Grid>
+      {state.editingCvv ? (
+        <p className={classes.cvv}>{state.creditCard.cvv || "***"}</p>
+      ) : (
+        <React.Fragment>
+          <p className={classes.creditCardNumber}>
+            {state.creditCard.number || "**** **** **** ****"}
+          </p>
+          <Grid
+            container
+            justify="space-around"
+            className={classes.textContainer}
+          >
+            <Grid item xs={9} className={classes.cardText}>
+              {state.creditCard.name || "NOME DO TITULAR"}
+            </Grid>
+            <Grid
+              item
+              xs={3}
+              className={classes.cardText}
+              style={{ textAlign: "right" }}
+            >
+              {state.creditCard.date || "00/00"}
+            </Grid>
+          </Grid>
+        </React.Fragment>
+      )}
     </Grid>
   );
 };

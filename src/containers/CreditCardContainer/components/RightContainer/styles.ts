@@ -6,7 +6,7 @@ export default ({ breakpoints }: Theme) =>
     container: {
       padding: "100px 0px",
       [breakpoints.up("md")]: {
-        padding: "50px 0px",
+        padding: "100px 0px 0px",
       },
     },
     form: {

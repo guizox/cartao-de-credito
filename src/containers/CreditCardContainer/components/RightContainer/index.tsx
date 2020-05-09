@@ -13,6 +13,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MaskedInput from "components/MaskedInput";
 import styles from "./styles";
 import GenericToolTip from "components/GenericToolTip";
+import Stepper from "components/Stepper";
 
 interface Props {
   state: State;
@@ -26,8 +27,12 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
   return (
     <Grid container item xs={8} direction="row" className={classes.container}>
       <Hidden mdDown>
-        <Grid item xs={12}>
-          Stepper
+        <Grid item xs={2}></Grid>
+        <Grid item xs={8}>
+          <Stepper
+            state={state}
+            steps={["Carrinho", "Pagamento", "Confirmação"]}
+          />
         </Grid>
       </Hidden>
 
@@ -111,6 +116,8 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
                 <GenericToolTip color="#f0f0f0" title="Código de verificação" />
               ),
             }}
+            onEnter={() => setState({ ...state, editingCvv: true })}
+            onBlur={() => setState({ ...state, editingCvv: false })}
           ></MaskedInput>
         </Grid>
 

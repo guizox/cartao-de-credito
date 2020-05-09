@@ -15,7 +15,8 @@ const MaskedInput: React.FC<IMaskedInput> = ({
   variant,
   required,
   onBlur,
-  InputProps
+  InputProps,
+  onEnter,
 }) => (
   <InputMask
     mask={mask}
@@ -24,8 +25,9 @@ const MaskedInput: React.FC<IMaskedInput> = ({
     onChange={onChange}
     onBlur={onBlur}
     disabled={disabled}
+    onFocus={onEnter}
   >
-    {inputProps => (
+    {(inputProps, onEnter) => (
       <TextField
         {...inputProps}
         label={label}

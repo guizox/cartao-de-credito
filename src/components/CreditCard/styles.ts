@@ -51,4 +51,18 @@ export default ({ breakpoints }: Theme) =>
         width: 570,
       },
     },
+    cvv: {
+      position: "absolute",
+      marginTop: "-100px",
+      marginLeft: 145,
+      fontSize: "1.2rem",
+      width: "100%",
+      letterSpacing: "0.2rem",
+      color: "black",
+      [breakpoints.up("lg")]: {
+        marginTop: "-195px",
+        fontSize: "2.2rem",
+        marginLeft: 300,
+      },
+    },
   });
