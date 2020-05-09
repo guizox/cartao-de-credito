@@ -20,6 +20,7 @@ const initialState: State = {
   },
   editingCvv: false,
   step: 2,
+  isLoading: false,
 };
 
 const CreditCardContainer = () => {

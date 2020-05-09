@@ -9,11 +9,17 @@ import { makeStyles } from "@material-ui/styles";
 import { Breakpoint } from "@material-ui/core/styles/createBreakpoints";
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 import MenuItem from "@material-ui/core/MenuItem";
-
+import { makePayment } from "../../service";
 import MaskedInput from "components/MaskedInput";
 import styles from "./styles";
 import GenericToolTip from "components/GenericToolTip";
 import Stepper from "components/Stepper";
+import {
+  FormControl,
+  InputLabel,
+  FormHelperText,
+  CircularProgress,
+} from "@material-ui/core";
 
 interface Props {
   state: State;
@@ -52,8 +58,12 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
               })
             }
             label="Número do cartão"
-            helperText={""}
-            error={false}
+            helperText={
+              state.creditCard.number.length === 0
+                ? "Número do cartão inválido"
+                : ""
+            }
+            error={state.creditCard.number.length === 0}
           ></MaskedInput>
         </Grid>
 
@@ -61,6 +71,11 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
           <TextField
             label="Nome"
             placeholder="Nome(Igual ao do cartão)"
+            helperText={
+              state.creditCard.name.length === 0
+                ? "Insira seu nome completo"
+                : ""
+            }
             onChange={(e) =>
               setState({
                 ...state,
@@ -71,6 +86,7 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
               })
             }
             fullWidth
+            error={state.creditCard.name.length === 0}
           ></TextField>
         </Grid>
 
@@ -79,6 +95,10 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
             mask="99/99"
             value={state.creditCard.date}
             maskChar="0"
+            helperText={
+              state.creditCard.date.length === 0 ? "Data inválida" : ""
+            }
+            error={state.creditCard.date.length === 0}
             onChange={(e) =>
               setState({
                 ...state,
@@ -89,16 +109,15 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
               })
             }
             label="Validade"
-            helperText={""}
-            error={false}
           ></MaskedInput>
         </Grid>
 
         <Grid item xs={6}>
           <MaskedInput
             mask="999"
-            value={state.creditCard.cvv}
+            value={state.creditCard.cvv.length > 0 ? state.creditCard.cvv : ""}
             maskChar="*"
+            error={state.creditCard.cvv.length === 0}
             onChange={(e) =>
               setState({
                 ...state,
@@ -109,8 +128,7 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
               })
             }
             label="CVV"
-            helperText={""}
-            error={false}
+            helperText={"CVV inválido"}
             InputProps={{
               endAdornment: (
                 <GenericToolTip color="#f0f0f0" title="Código de verificação" />
@@ -122,29 +140,46 @@ const RightContainer: React.FC<Props> = ({ state, setState, width }) => {
         </Grid>
 
         <Grid item xs={12}>
-          <Select
-            value={state.creditCard.installments}
-            onChange={(e) =>
-              setState({
-                ...state,
-                creditCard: {
-                  ...state.creditCard,
-                  installments: e.target.value,
-                },
-              })
-            }
-            fullWidth
+          <FormControl
+            error={state.creditCard.installments.length === 0}
+            style={{ width: "100%" }}
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
-              <MenuItem key={item} value={item}>{`${item} x`}</MenuItem>
-            ))}
-          </Select>
+            <InputLabel id="demo-simple-select-error-label">Name</InputLabel>
+            <Select
+              value={state.creditCard.installments}
+              onChange={(e) =>
+                setState({
+                  ...state,
+                  creditCard: {
+                    ...state.creditCard,
+                    installments: e.target.value,
+                  },
+                })
+              }
+              fullWidth
+            >
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
+                <MenuItem key={item} value={item}>{`${item} x`}</MenuItem>
+              ))}
+            </Select>
+            <FormHelperText>
+              {state.creditCard.installments.length === 0
+                ? "Insíra o numero de parcelas"
+                : ""}
+            </FormHelperText>
+          </FormControl>
         </Grid>
 
         <Grid container justify="flex-end">
           <Grid item xs={isWidthUp("lg", width) ? 5 : 12}>
-            <Button variant="contained" fullWidth>
-              continuar
+            <Button
+              variant="contained"
+              fullWidth
+              onClick={() => {
+                makePayment(state, setState);
+              }}
+            >
+              {state.isLoading ? <CircularProgress size={40} /> : "continuar"}
             </Button>
           </Grid>
         </Grid>
