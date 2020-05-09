@@ -13,6 +13,8 @@ const makePayment = async (state: State, setState: any) => {
 
   setState({ ...state, isLoading: true });
 
+  await new Promise((resolve) => setTimeout(resolve, 2500));
+
   try {
     const { status, data } = await api.post({
       url: endpoints.payment(),
