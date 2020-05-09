@@ -9,6 +9,7 @@ Aplicação feita em react cobrindo os 2 cenários solicitados
 ## Tecnologia
 
 Foi utilizado React juntamente com algumas bibliotecas, tais como :
+- Typescript
 - Material UI
 - Axios
 - Cypress
