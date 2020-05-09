@@ -1,46 +1,63 @@
 # Exame - Bexs Front-end
 
-## Desafio
+## Aplicação
 
-Desenvolver uma aplicação front-end de acordo com as especificações descritas nos **requisitos** utilizando a _stack_ tecnologica de sua preferencia.
+Aplicação feita em react cobrindo os 2 cenários solicitados
+- Desktop Large
+- Smartphone (360 x 640)
 
-- Desenvolva este Layout: https://xd.adobe.com/spec/9c4a9206-ac61-4050-796d-89c00fb79e91-ea7b
-- Utilize a tecnologia de sua preferencia (ReactJs, Angular, Angularjs, Vue.js, Jquery, Bootstrap, Material, Nodejs, Java, C#, PHP, etc).
+## Tecnologia
 
-## Como entregar sua solução?
+Foi utilizado React juntamente com algumas bibliotecas, tais como :
+- Material UI
+- Axios
+- Cypress
+...etc ( mais informaçoões no package.json)
 
-1. Clone do repositório
+### Rodando a aplicação 
 
-2. Tente explicar a evolução do projeto em _commits_.
+Para rodar a aplicação, é necessario que rode o comando de instalação dos pacotes 
 
-3. Caso use algum _task runner_/_module bundle_ - faça o commit da ultima versão build/bundle.
+`npm install`
 
-4. Para nos enviar seu teste escolha uma das formas:
+E posteriormente, rode o comando
 
-### Gerar um patch:
+`npm install`
 
-Para gerar o patch:
+E a aplicação irá ser iniciada em seu navegador no caminho
 
-```
-git format-patch origin/master --stdout > seu_nome.patch
-```
+http://localhost:3001
 
-Certifique que o patch irá funcionar executando >> `git apply seu_nome.patch` e nos envie através do email que entramos em contato
+### Requisições REST
 
-### Criando um repositório público:
+Todas as requisições rest usariam o objeto exportado da pasta api.
+Assim, seria de fácil accesso os erros para inválidar o usuário caso fosse necessário.
 
-Crie um repositório em uma plataforma de pública de repositórios (GitHub, BitBucket, GitLab, etc) e nos envie através do email que entramos em contato.
+Pensando nessa arquitetura, o mais correto seria utilizar a biblioteca Redux ou Context API para que facilmente conseguissimos
+disparar mensagens na tela e ter acesso ao estado do usuário.
+
+Porém, como trata-se de uma aplicação teste, nao vi necessidade de implementar os mesmos.
 
 ## Requisitos
 
-- Faça códigos legiveis e utilize uma arquitetura de fácil entendimento.
-- Edite este Readme ou crie um novo Markdown explicando como um DEV deveria utilizar o projeto
+Node e npm
 
-## Bonus
+## Rodando os testes.
 
-- Testes automatizados.
-- Crie uma camada que efetue uma chamada REST para um endpoint fictício "/pagar" - iremos analisar apenas a estrutura
+Para testes, utilizei o framework cypress.
 
-## Dúvidas
+https://www.cypress.io/
 
-Entre em contato e nos questione.
+para utilizá-lo, basta executar o comando abaixo e rodar o arquivo de teste que deseja.
+
+`npx cypress open`
+
+## Contato
+
+https://github.com/guizox
+
+https://www.linkedin.com/in/vitorgvieira/
+
+Espero que gostem!
+
+Obrigado!
