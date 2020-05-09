@@ -74,7 +74,7 @@ const LeftContainer: React.FC<Props> = ({ state, setState }) => {
         </Grid>
       </Grid>
 
-      <CreditCard state={state} setState={setState} />
+      <CreditCard state={state} />
     </Grid>
   );
 };

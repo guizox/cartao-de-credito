@@ -8,22 +8,27 @@ const useStyles = makeStyles(styles);
 
 interface Props {
   state: State;
-  setState: () => void;
 }
 
-const CreditCard: React.FC<Props> = ({ state, setState }) => {
+const CreditCard: React.FC<Props> = ({ state }) => {
   const classes = useStyles();
   return (
     <Grid item className={classes.creditCardContainer}>
       <img
-        src="/images/emptyCreditCard.svg"
+        src={
+          state.creditCard.number.split("*").join("").length > 8
+            ? "/images/filledCreditCard.svg"
+            : "/images/emptyCreditCard.svg"
+        }
         alt="emptyCreditCard"
         className={classes.image}
       />
-      <p className={classes.creditCardNumber}>{state.creditCard.number}</p>
+      <p className={classes.creditCardNumber}>
+        {state.creditCard.number || "**** **** **** ****"}
+      </p>
       <Grid container justify="space-around" className={classes.textContainer}>
         <Grid item xs={9} className={classes.cardText}>
-          {state.creditCard.name}
+          {state.creditCard.name || "NOME DO TITULAR"}
         </Grid>
         <Grid
           item
@@ -31,7 +36,7 @@ const CreditCard: React.FC<Props> = ({ state, setState }) => {
           className={classes.cardText}
           style={{ textAlign: "right" }}
         >
-          {state.creditCard.date}
+          {state.creditCard.date || "00/00"}
         </Grid>
       </Grid>
     </Grid>

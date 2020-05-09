@@ -6,5 +6,6 @@ export interface CreditCard {
   number: string;
   name: string;
   date: string;
-  cvc: string;
+  cvv: string;
+  installments: string;
 }

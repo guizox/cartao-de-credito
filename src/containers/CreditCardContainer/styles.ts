@@ -15,8 +15,6 @@ export default ({ breakpoints }: Theme) =>
     },
     column: {
       display: "flex",
-      alignContent: "center",
-      borderRight: `1px solid ${palette.superLightGray}`,
       height: "100vh",
       [breakpoints.down("md")]: {
         height: "100%",

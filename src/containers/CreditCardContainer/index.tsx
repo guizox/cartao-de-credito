@@ -12,10 +12,11 @@ const useStyles = makeStyles(styles);
 
 const initialState: State = {
   creditCard: {
-    number: "**** **** **** ****",
-    name: "NOME DO TITULAR",
-    date: "00/00",
-    cvc: "",
+    number: "",
+    name: "",
+    date: "",
+    cvv: "",
+    installments: "",
   },
 };
 
@@ -27,14 +28,7 @@ const CreditCardContainer = () => {
   return (
     <Container maxWidth="xl" className={classes.container}>
       <Grid item container className={classes.root}>
-        <Grid
-          container
-          item
-          xs={12}
-          lg={4}
-          alignContent="space-between"
-          justify="center"
-        >
+        <Grid container item xs={12} lg={4} alignContent="space-between">
           <Grid
             container
             className={classNames(classes.column, classes.leftColumn)}
@@ -42,22 +36,9 @@ const CreditCardContainer = () => {
             <LeftContainer state={state} setState={setState} />
           </Grid>
         </Grid>
-        <Grid
-          container
-          item
-          xs={12}
-          lg={8}
-          alignContent="space-between"
-          justify="center"
-        >
-          <Grid
-            container
-            justify="center"
-            alignContent="center"
-            alignItems="center"
-            className={classes.column}
-          >
-            <RightContainer />
+        <Grid container item xs={12} lg={8}>
+          <Grid container justify="center" className={classes.column}>
+            <RightContainer state={state} setState={setState} />
           </Grid>
         </Grid>
       </Grid>
