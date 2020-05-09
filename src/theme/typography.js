@@ -7,7 +7,7 @@ export default {
     color: palette.white,
     fontWeight: 900,
     fontSize: "45px",
-    letterSpacing: "0px"
+    letterSpacing: "0px",
   },
   h2: {
     fontFamily: "Museo, serif",
@@ -15,7 +15,7 @@ export default {
     color: palette.white,
     fontWeight: 900,
     fontSize: "32px",
-    letterSpacing: "0px"
+    letterSpacing: "0px",
   },
   h3: {
     color: palette.mediumGray,
@@ -24,14 +24,14 @@ export default {
     fontStyle: "normal",
     fontSize: "30px",
     letterSpacing: "0px",
-    lineHeight: "30px"
+    lineHeight: "30px",
   },
   h4: {
     color: palette.text.primary,
     fontWeight: 500,
     fontSize: "20px",
     letterSpacing: "-0.06px",
-    lineHeight: "24px"
+    lineHeight: "24px",
   },
   h5: {
     color: palette.text.primary,
@@ -39,41 +39,43 @@ export default {
     fontWeight: 500,
     fontSize: "16px",
     letterSpacing: "-0.05px",
-    lineHeight: "20px"
+    lineHeight: "20px",
   },
   h6: {
     color: palette.text.primary,
     fontWeight: 500,
     fontSize: "14px",
     letterSpacing: "-0.05px",
-    lineHeight: "20px"
+    lineHeight: "20px",
   },
   subtitle1: {
     fontFamily: "Roboto",
     color: palette.black,
     fontSize: "14px",
     letterSpacing: "0px",
-    lineHeight: "25px"
+    lineHeight: "25px",
   },
   subtitle2: {
     fontFamily: "Roboto",
     color: palette.mainGray,
     fontSize: "12px",
     letterSpacing: "0px",
-    lineHeight: "21px"
+    lineHeight: "21px",
   },
   body1: {
-    fontFamily: "Roboto",
-    color: palette.lightGray,
-    fontSize: "16px",
-    letterSpacing: "0px"
+    fontFamily: "Verdana",
+    color: "#FFFFFF",
+    fontSize: "20px",
+    letterSpacing: "0px",
+    textAlign: "center",
   },
   body2: {
-    fontFamily: "Roboto",
-    color: palette.text.secondary,
-    fontSize: "14px",
-    letterSpacing: "-0.04px",
-    lineHeight: "18px"
+    fontFamily: "Verdana",
+    color: "#FFFFFF",
+    fontSize: "20px",
+    letterSpacing: "0px",
+    fontWeight: 900,
+    textAlign: "left",
   },
   button: {
     fontFamily: "Roboto",
@@ -84,14 +86,14 @@ export default {
     lineHeight: 1.5,
     textTransform: "none",
     "&:hover": {
-      textDecoration: "underline"
-    }
+      textDecoration: "underline",
+    },
   },
   caption: {
     color: palette.text.secondary,
     fontSize: "11px",
     letterSpacing: "0.33px",
-    lineHeight: "13px"
+    lineHeight: "13px",
   },
   overline: {
     color: palette.text.secondary,
@@ -99,6 +101,6 @@ export default {
     fontWeight: 500,
     letterSpacing: "0.33px",
     lineHeight: "13px",
-    textTransform: "uppercase"
-  }
+    textTransform: "uppercase",
+  },
 };

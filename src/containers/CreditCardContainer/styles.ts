@@ -4,6 +4,9 @@ import palette from "theme/palette";
 
 export default ({ breakpoints }: Theme) =>
   createStyles({
+    container: {
+      padding: "0",
+    },
     root: {
       overflow: "visible",
       [breakpoints.up("lg")]: {
