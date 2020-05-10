@@ -47,6 +47,8 @@ Node e npm
 
 Para testes, utilizei o framework cypress.
 
+Garanta que o mesmo esteja instalado em seu computador antes de executá-lo.
+
 https://www.cypress.io/
 
 para utilizá-lo, basta executar o comando abaixo e rodar o arquivo de teste que deseja.
