@@ -1,4 +1,4 @@
-describe("My First Test", () => {
+describe("Desktop Test", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3001");
     cy.viewport(1800, 1000);
